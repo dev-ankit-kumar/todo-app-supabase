@@ -17,6 +17,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [signup,setsignup]=useState(false)
   const getUser = async () => {
+    
     setLoading(true)
     const { data: { user } } = await supabase.auth.getUser()
     setUser(user);
@@ -28,11 +29,19 @@ function App() {
     getUser();
   }, [])
 
-
+ 
 
   return (
     <div className="App">
       {/* <Navbar /> */}
+      
+
+{loading &&
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+}
+
 
       {user ? <Body  getUser={getUser} user={user}/> : !signup ?<Login getUser={getUser} setsignup={setsignup}/>:<Signup setsignup={setsignup}/>
       }

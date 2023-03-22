@@ -4,6 +4,7 @@ import supabase from "../supabaseClient";
 import Li from "./Li";
 const Body = ({ getUser, user }) => {
   const handleClick = async () => {
+    setLoading(true)
     try {
       const { data, error } = await supabase
         .from('Todo Data')
@@ -24,11 +25,14 @@ const Body = ({ getUser, user }) => {
       setError(err.message);
     }
     settodo("");
+    setLoading(false)
   }
   const [error, setError] = useState("");
   const [dataList, setdataList] = useState([]);
   const [todo, settodo] = useState("");
   const [liststyle,setliststyle]=useState("");
+  const [loading, setLoading] = useState(false);
+
 
   const check=()=>{
     setliststyle('styledlist')
@@ -64,6 +68,11 @@ const Body = ({ getUser, user }) => {
 
   return (
     <div>
+      {loading &&
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+}
       <div className="profile">
         <p className="user" >{user.email}
         </p>
@@ -89,7 +98,9 @@ const Body = ({ getUser, user }) => {
         </div>
         <p>{error}</p>
         {dataList.map((data, index) => {
-          return <Li key={index} data={data} ></Li>
+          return <Li setdataList={setdataList} key={index} data={data} >
+            
+          </Li>
         })}
       </div>
     </div>
