@@ -1,0 +1,156 @@
+body{
+    background-color: rgb(1, 1, 27);
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+.styledlist{
+    background-color: red;
+    text-decoration: line-through;
+}
+.navbar{
+    background-color: rgb(152, 8, 8);
+    height: 3rem;
+    width: 100%;
+}
+.navbar-user{
+    position: absolute;
+    right: 1rem;
+}
+.navbar-user a{
+    color: white;
+    text-decoration: none;
+
+}
+li{
+    color: white;
+    list-style: decimal;
+    background-color: rgb(49, 4, 78);
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.profile{
+    margin-top: 10px;
+    width: 100px;
+    /* height: auto; */
+    display: flex;
+    justify-content: space-between;
+}
+.logout{
+    color: white;
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+}
+.user{
+    background-color: silver;
+    padding: 5px;
+
+    width: 100%;
+    overflow-wrap: break-word;
+}
+.todo-box{
+    background-color: black;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    padding: 1rem;
+    border: 1px dashed white;
+    margin-top: 5%;
+}
+.inp{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.inp input{
+    /* border: none; */
+}
+.btn{
+    border: none;
+    background-color: red;
+    color: white;
+
+}
+.main-login{
+    display: flex;
+
+}
+.boy{
+    width: 50%;
+    height: 100vh;
+    /* background-color: aliceblue; */
+    margin: auto;   
+    padding: 2rem;
+    position: fixed;
+    /* right: 4rem; */
+    display: flex;
+    align-items: center;
+    
+    
+}
+.boy img{
+    width: 90%;
+}
+.box{
+    width: 20rem;
+    height: 30vh;
+    background-color: aliceblue;
+    margin: auto;   
+    padding: 2rem;
+    position: fixed;
+    right: 10rem;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.email{
+display: flex;
+margin-bottom: 1rem;
+justify-content: space-between;
+}
+.mail{
+    width: 80%;
+}
+.password{
+    width: 80%;
+}
+.passwrd{
+display: flex;
+justify-content: space-between;
+}
+.submit{
+    background-color: rgb(26, 95, 234);
+    color: white;
+    border: none;
+    width: 50%;
+    margin-top: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+.create{
+    margin-top: 10px;
+}
+.account{
+    text-decoration: none;
+    color: blue;
+}
+@media (max-width:700px) {
+    .box{
+        position: fixed;
+       right: 0;
+       left: 0;
+    }
+}
+@media (max-width:950px) {
+    .boy{
+        display: none;
+    }
+    .box{
+        position: fixed;
+       right: 0;
+       left: 0;
+    }
+}
