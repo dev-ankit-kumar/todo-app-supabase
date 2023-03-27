@@ -15,6 +15,10 @@ const Login = ({getUser,setsignup}) => {
              if(error){
                 throw new Error (error.message)
              }
+             else{
+                setLMsg('Login successfully')
+
+             }
         }
         catch(err){
             seterror(err.message);
@@ -25,9 +29,23 @@ const Login = ({getUser,setsignup}) => {
         setsignup(true)
     }
 
+
+    const togglePassword=()=>{
+        if(passwordType==="password"){
+            setPasswordType("text")
+        }
+        else{
+            setPasswordType("password")
+        
+        } 
+   }
+
     const[error,seterror]=useState("");
     const[email,setemail]=useState("");
     const[pass,setpass]=useState("");
+    const [passwordType, setPasswordType] = useState("password");
+
+
   return (
     
     <div className='main-login'>
@@ -48,7 +66,7 @@ const Login = ({getUser,setsignup}) => {
             <label htmlFor="password" >password:</label>
             <input onChange={(e)=>{
                 setpass(e.target.value)
-            }} className='password' type="text" value={pass} placeholder='Enter password'  />
+            }} className='password' type={passwordType} value={pass} placeholder='Enter password'  /> <button onClick={togglePassword}>i</button>
         </div>
         <button onClick={handleClick} className="submit">
             Submit
@@ -56,8 +74,9 @@ const Login = ({getUser,setsignup}) => {
         <div className="create">
             <p onClick={sign} className='account'>Create an account</p>
         </div>
+        <p>{error}</p>
+
       </div>
-      <p>{error}</p>
     </div>
   )
 }

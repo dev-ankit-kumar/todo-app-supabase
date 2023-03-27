@@ -16,16 +16,27 @@ const Signup = ({setsignup}) => {
              if(error){
                 throw new Error (error.message)
              }
+             
         }
         catch(err){
-            seterror(err.message);
+            seterror("check your mail box");
         }
     }
-
+    const togglePassword=()=>{
+        if(passwordType==="password"){
+            setPasswordType("text")
+        }
+        else{
+            setPasswordType("password")
+        
+        } 
+   }
 
     const[error,seterror]=useState("");
     const[email,setemail]=useState("");
     const[pass,setpass]=useState("");
+    const [passwordType, setPasswordType] = useState("password");
+
   return (
     
     <div className='main-login'>
@@ -48,7 +59,7 @@ const Signup = ({setsignup}) => {
             <label htmlFor="password">password:</label>
             <input onChange={(e)=>{
                 setpass(e.target.value)
-            }} className='password' type="text" value={pass}  placeholder='Enter password' />
+            }} className='password' type={passwordType} value={pass}  placeholder='Enter password' /><button onClick={togglePassword}>i</button>
         </div>
         <button onClick={handleClick} className="submit">
             Submit
@@ -58,8 +69,9 @@ const Signup = ({setsignup}) => {
                 setsignup(false)
             }}  className='account'>Login</p>
         </div>
+        <p>{error}</p>
+
       </div>
-      <p>{error}</p>
     </div>
   )
 }
