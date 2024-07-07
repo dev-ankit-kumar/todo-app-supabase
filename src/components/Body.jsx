@@ -83,7 +83,7 @@ const Body = ({ getUser, user }) => {
 
       <div className="todo-box">
         <div className="inp">
-          <input style={{ width: '100%' }}
+          <input className="w-full border-solid border-2 border-black p-2 m-2"
             onChange={(e) => {
               settodo(e.target.value);
             }}
@@ -97,11 +97,13 @@ const Body = ({ getUser, user }) => {
           {/* <span>{todo}</span> */}
         </div>
         <p>{error}</p>
-        {dataList.map((data, index) => {
-          return <Li setdataList={setdataList} key={index} data={data} >
+       <div className="">
+       {dataList.map((data, index) => {
+          return <div className="bg-blue-200 mb-2 p-2"><Li  setdataList={setdataList} key={index} data={data}  >
             
-          </Li>
+          </Li></div>
         })}
+       </div>
       </div>
     </div>
   );
